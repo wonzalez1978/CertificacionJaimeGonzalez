@@ -1,4 +1,8 @@
 package cl.desafiolatam.jaimegonzalez.modelo
 
-data class BooksPojo(val id : Int, val title : String, val author :String,
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "books_table")
+data class BooksPojo(@PrimaryKey val id : Int, val title : String, val author :String,
                      val language : String, val imageLink : String,)
