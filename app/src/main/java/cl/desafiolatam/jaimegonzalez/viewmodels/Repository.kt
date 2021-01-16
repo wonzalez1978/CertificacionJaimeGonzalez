@@ -3,8 +3,8 @@ package cl.desafiolatam.jaimegonzalez.viewmodels
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
 import cl.desafiolatam.jaimegonzalez.modelo.BooksPojo
+import cl.desafiolatam.jaimegonzalez.modelo.DetailsBook
 import cl.desafiolatam.jaimegonzalez.modelo.RetrofitClient
 import cl.desafiolatam.jaimegonzalez.modelo.room.BooksDatabase
 import kotlinx.coroutines.CoroutineScope
@@ -17,11 +17,15 @@ import retrofit2.Response
 class Repository(context: Context) {
 
 
-val bookDao : cl.desafiolatam.jaimegonzalez.modelo.room.Dao = BooksDatabase.getDatabase(context).dao()
+    val bookDao: cl.desafiolatam.jaimegonzalez.modelo.room.Dao =
+        BooksDatabase.getDatabase(context).dao()
 
-val getAll :LiveData<List<BooksPojo>> = bookDao.getAllBooks()
+    val getAll: LiveData<List<BooksPojo>> = bookDao.getAllBooks()
 
-    fun loadApiData(){
+    fun getInformation(id : Int): LiveData<DetailsBook>{
+        return bookDao.getDetails(id)
+    }
+    fun loadApiData() {
         val call = RetrofitClient.retrofitInstance().getBooks()
         call.enqueue(object : Callback<List<BooksPojo>> {
             override fun onResponse(
@@ -42,5 +46,10 @@ val getAll :LiveData<List<BooksPojo>> = bookDao.getAllBooks()
             }
 
         })
+    }
+
+     fun getBookDetails(id: Int): LiveData<DetailsBook> {
+        return bookDao.getDetails(id)
+
     }
 }

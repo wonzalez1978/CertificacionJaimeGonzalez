@@ -6,8 +6,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import cl.desafiolatam.jaimegonzalez.modelo.BooksPojo
+import cl.desafiolatam.jaimegonzalez.modelo.DetailsBook
 
-@Database(entities = [BooksPojo::class], version = 1)
+@Database(entities = [BooksPojo::class, DetailsBook::class], version = 1)
 
 public abstract class BooksDatabase : RoomDatabase() {
 
@@ -15,7 +16,7 @@ public abstract class BooksDatabase : RoomDatabase() {
 
     companion object{
         @Volatile
-        var INSTANCE: BooksDatabase? = null
+       private var INSTANCE: BooksDatabase? = null
         fun getDatabase(context: Context): BooksDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {

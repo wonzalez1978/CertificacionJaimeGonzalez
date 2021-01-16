@@ -29,12 +29,15 @@ class BookFragment : Fragment() {
         adapterBooks = AdapterBooks(mutableListOf())
 
         myViewModel.obtenerValor()
-        myViewModel.getAllBooks.observe(viewLifecycleOwner, Observer{
+        myViewModel.getAllBooks.observe(viewLifecycleOwner, Observer {
             adapterBooks.upDateAdapter(it)
         })
-
-
-
+        adapterBooks.bookSelected.observe(viewLifecycleOwner, {
+            myViewModel.select(it)
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.containerfragment, DetailsBookFragment.newInstance(), "detalle")
+                .addToBackStack("").commit()
+        })
         return view
     }
 
