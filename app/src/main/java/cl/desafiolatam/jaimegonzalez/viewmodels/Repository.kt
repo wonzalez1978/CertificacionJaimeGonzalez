@@ -22,9 +22,10 @@ class Repository(context: Context) {
 
     val getAll: LiveData<List<BooksPojo>> = bookDao.getAllBooks()
 
-    fun getInformation(id : Int): LiveData<DetailsBook>{
+    fun getInformation(id: Int): LiveData<DetailsBook> {
         return bookDao.getDetails(id)
     }
+
     fun loadApiData() {
         val call = RetrofitClient.retrofitInstance().getBooks()
         call.enqueue(object : Callback<List<BooksPojo>> {
@@ -48,7 +49,29 @@ class Repository(context: Context) {
         })
     }
 
-     fun getBookDetails(id: Int): LiveData<DetailsBook> {
+  /*  fun loadApiDetails(id: Int) {
+        val service = RetrofitClient.retrofitInstance()
+        val call = service.getDetails(id)
+        call.enqueue(object : Callback<DetailsBook> {
+            override fun onResponse(call: Call<DetailsBook>, response: Response<DetailsBook>) {
+                Log.d("repository", "${response.isSuccessful}")
+                CoroutineScope(Dispatchers.IO).launch {
+                    response.body()?.let {
+                        bookDao.insertBook2(it)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<DetailsBook>, t: Throwable) {
+                Log.d("repository", "$t")
+            }
+
+        })
+
+
+    }
+*/
+    fun getBookDetails(id: Int): LiveData<DetailsBook> {
         return bookDao.getDetails(id)
 
     }

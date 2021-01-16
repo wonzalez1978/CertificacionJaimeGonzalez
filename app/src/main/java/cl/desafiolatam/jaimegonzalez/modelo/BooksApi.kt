@@ -8,6 +8,6 @@ interface BooksApi {
     @GET("books")
     fun getBooks(): Call<List<BooksPojo>>
 
-    @GET("bookDetails/{id}")
+    @GET("bookDetail/{id}")
     fun getDetails(@Path("id") id: Int): Call<DetailsBook>
 }

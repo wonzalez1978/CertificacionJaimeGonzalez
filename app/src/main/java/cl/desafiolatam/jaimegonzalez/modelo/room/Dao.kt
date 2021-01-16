@@ -20,11 +20,9 @@ fun getAllBooks(): LiveData<List<BooksPojo>>
 @Query("SELECT * FROM table_info Where id =:id")
   fun getDetails(id : Int): LiveData<DetailsBook>
 
-/*
 
 @Insert(onConflict = OnConflictStrategy.REPLACE)
- fun insertBook ( bookDetails : DetailsBook)
-*/
+ suspend fun insertBook2 ( bookDetails : DetailsBook)
 
 
 }
