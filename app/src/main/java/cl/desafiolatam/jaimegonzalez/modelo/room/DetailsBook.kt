@@ -1,4 +1,4 @@
-package cl.desafiolatam.jaimegonzalez.modelo
+package cl.desafiolatam.jaimegonzalez.modelo.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 data class DetailsBook(
     @PrimaryKey val id: Int,
     val author: String,
-    val image: String,
+    val imageLink: String,
     val language: String,
     val pages: Int,
     val title: String,
     val year: Int,
-    val price: Int,
+    val price: Int
     //val delivery: Boolean
 )

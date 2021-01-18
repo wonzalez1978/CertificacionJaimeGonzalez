@@ -36,12 +36,12 @@ class DetailsBookFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        myViewModel.getBookInformation().observe(viewLifecycleOwner, {
+        myViewModel.getBookInformation().observe(viewLifecycleOwner, Observer {
 
             if (it != null) {
                 Log.d("DetailsFragment", it.toString())
                 tv_titulo.text = it.title
-                Picasso.get().load(it.image).into(iv_imagen)
+                Picasso.get().load(it.imageLink).into(iv_imagen)
                 tv_lenguaje.text = it.language
                 tv_autor.text = it.author
                 tv_paginas.text = it.pages.toString()

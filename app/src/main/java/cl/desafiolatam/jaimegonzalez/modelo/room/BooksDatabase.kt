@@ -1,12 +1,10 @@
 package cl.desafiolatam.jaimegonzalez.modelo.room
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import cl.desafiolatam.jaimegonzalez.modelo.BooksPojo
-import cl.desafiolatam.jaimegonzalez.modelo.DetailsBook
+
 
 @Database(entities = [BooksPojo::class, DetailsBook::class], version = 1)
 
@@ -14,9 +12,9 @@ public abstract class BooksDatabase : RoomDatabase() {
 
     abstract fun dao(): Dao
 
-    companion object{
+    companion object {
         @Volatile
-       private var INSTANCE: BooksDatabase? = null
+        private var INSTANCE: BooksDatabase? = null
         fun getDatabase(context: Context): BooksDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
@@ -37,14 +35,3 @@ public abstract class BooksDatabase : RoomDatabase() {
 
 }
 
-class JaimeGonzalez : Application() {
-    companion object {
-        lateinit var database: BooksDatabase
-    }
-
-    override fun onCreate() {
-        super.onCreate()
-        JaimeGonzalez.database =
-            Room.databaseBuilder(this, BooksDatabase::class.java, "task_db").build()
-    }
-}

@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import cl.desafiolatam.jaimegonzalez.R
-import cl.desafiolatam.jaimegonzalez.modelo.BooksPojo
+import cl.desafiolatam.jaimegonzalez.modelo.room.BooksPojo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.itembooks.view.*
 
