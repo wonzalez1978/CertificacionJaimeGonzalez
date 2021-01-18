@@ -12,6 +12,6 @@ data class DetailsBook(
     val pages: Int,
     val title: String,
     val year: Int,
-    val price: Int
-    //val delivery: Boolean
+    val price: Int,
+    val delivery: Boolean
 )

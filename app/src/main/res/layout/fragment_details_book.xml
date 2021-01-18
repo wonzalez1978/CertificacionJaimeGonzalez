@@ -70,4 +70,34 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/iv_imagen"
         app:layout_constraintTop_toBottomOf="@+id/iv_imagen" />
+
+    <TextView
+        android:id="@+id/tv_dely"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Delivery :"
+        app:layout_constraintStart_toStartOf="@+id/tv_año"
+        app:layout_constraintTop_toBottomOf="@+id/tv_año" />
+
+    <TextView
+        android:id="@+id/tv_delivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dely"
+        app:layout_constraintStart_toEndOf="@+id/tv_dely"
+        app:layout_constraintTop_toTopOf="@+id/tv_dely" />
+
+    <Button
+        android:id="@+id/id_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprar"
+        android:onClick="comprarlibro"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lenguaje"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_lenguaje"
+        app:layout_constraintTop_toTopOf="@+id/tv_lenguaje" />
 </androidx.constraintlayout.widget.ConstraintLayout>
