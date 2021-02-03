@@ -8,7 +8,7 @@ import androidx.room.Query
 import cl.desafiolatam.jaimegonzalez.modelo.room.DetailsBook
 
 @Dao
-interface Dao {
+interface BookDao {
 
     @Query("SELECT * FROM books_table")
     fun getAllBooks(): LiveData<List<BooksPojo>>

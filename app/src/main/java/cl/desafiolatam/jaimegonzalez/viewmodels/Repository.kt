@@ -17,7 +17,7 @@ import retrofit2.Response
 class Repository(context: Context) {
 
 
-    var bookDao: cl.desafiolatam.jaimegonzalez.modelo.room.Dao =
+    var bookDao: cl.desafiolatam.jaimegonzalez.modelo.room.BookDao =
         BooksDatabase.getDatabase(context).dao()
 
     val getAll: LiveData<List<BooksPojo>> = bookDao.getAllBooks()
